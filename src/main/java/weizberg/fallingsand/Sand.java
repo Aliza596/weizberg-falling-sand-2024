@@ -36,7 +36,7 @@ public class Sand {
         int[][] newField = new int[3][3];
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 3; x++) {
-                if (field[y][x] == 1 && y + 1 < 3 && field [y+1][x] == 0) {
+                if (field[y][x] == 1 && y + 1 < 3 && field [y + 1][x] == 0) {
                     newField[y][x] = 0;
                     newField [y + 1][x] = 1;
                 } else if (field[y][x] == 1) {
