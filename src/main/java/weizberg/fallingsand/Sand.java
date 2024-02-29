@@ -31,12 +31,20 @@ public class Sand {
         field[y][x] = 1;
     }
 
-    public void fall(int x, int y) {
+    public void fall() {
         //moves all sand down one square
-        if ((y + 1 < 3) && (field[y + 1][x] == 0)) {
-            field[y][x] = 0;
-            field[y + 1][x] = 1;
+        int[][] newField = new int[3][3];
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                if (field[y][x] == 1 && y + 1 < 3 && field [y+1][x] == 0) {
+                    newField[y][x] = 0;
+                    newField [y + 1][x] = 1;
+                } else if (field[y][x] == 1) {
+                    newField[y][x] = 1;
+                }
+            }
         }
+        field = newField;
     }
 
 }
