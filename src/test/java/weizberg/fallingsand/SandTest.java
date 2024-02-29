@@ -44,6 +44,11 @@ public class SandTest {
         assertEquals("000\n010\n000\n", sand.toString());
     }
 
+    /*
+     this test is to check to make sure that if the sand
+     is in the bottom of the grid, it will not fall more,
+     because it can't
+     */
     @Test
     public void fallOnGround() {
         //given
@@ -56,9 +61,13 @@ public class SandTest {
         //then
         assertEquals("000\n000\n010\n", sand.toString());
 
-        //this test is to check to make sure that if the sand is in the bottom of the grid, it will not fall more, because it can't
     }
 
+    /*
+    this test is to check to make sure that if
+    the sand is on top of another grid of sand,
+    it will not fall more, because it can't
+     */
     @Test
     public void fallOnOtherSand() {
         //given
@@ -72,6 +81,5 @@ public class SandTest {
         //then
         assertEquals("000\n010\n010\n", sand.toString());
 
-        //this test is to check to make sure that if the sand is on top of another grid of sand, it will not fall more, because it can't
     }
 }
