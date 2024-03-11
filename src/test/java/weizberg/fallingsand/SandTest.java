@@ -85,6 +85,7 @@ public class SandTest {
         // then
         assertEquals("000\n000\n111\n", sand.toString());
     }
+
     @Test
     public void fallToTheLeft() {
         // given
