@@ -1,10 +1,11 @@
 package weizberg.fallingsand;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Sand {
 
-    private int[][] field;
+    private final int[][] field;
     private final Random random;
 
     public Sand(int width, int height) {
@@ -41,7 +42,7 @@ public class Sand {
      * Sets the value in field to be 1
      */
     public void put(int x, int y) {
-        field[y][x] = 1;
+            field[y][x] = 1;
     }
 
     public void fall() {
@@ -73,10 +74,40 @@ public class Sand {
         }
 
     }
+
+    public void randomSand(int n) {
+        for (int i = 0; i < n; i++) {
+            int xValue = random.nextInt(50);
+            int yValue = random.nextInt(10);
+            put(xValue, yValue);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int height, width;
+
+        System.out.println("Please enter the width dimension of the field: ");
+        height = input.nextInt();
+
+        System.out.println("Please enter the height dimension of the field: ");
+        width = input.nextInt();
+
+        Sand sand = new Sand(height, width);
+        System.out.println(sand);
+
+        sand.randomSand(50);
+
+        System.out.println("Press the enter key to drop the sand. ");
+        String enter = input.nextLine();
+
+        while (enter.equals(" ")) {
+            sand.fall();
+            System.out.println(sand);
+            enter = input.nextLine();
+        }
+
+    }
 }
 
-/*write a method
-public void randomSand(int n) {
-uses the random class to decide where to add sand, and also n is how much sand
-}
- */
+
