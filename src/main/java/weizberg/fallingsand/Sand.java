@@ -77,19 +77,20 @@ public class Sand {
 
     public void randomSand(int n) {
         for (int i = 0; i < n; i++) {
-            int xValue = random.nextInt(50);
-            int yValue = random.nextInt(10);
-            put(xValue, yValue);
+            int valueX = random.nextInt(50);
+            int valueY = random.nextInt(10);
+            put(valueX, valueY);
         }
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int height, width;
 
+        int height;
         System.out.println("Please enter the width dimension of the field: ");
         height = input.nextInt();
 
+        int width;
         System.out.println("Please enter the height dimension of the field: ");
         width = input.nextInt();
 
