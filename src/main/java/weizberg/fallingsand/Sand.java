@@ -77,8 +77,8 @@ public class Sand {
 
     public void randomSand(int n) {
         for (int i = 0; i < n; i++) {
-            int valueX = random.nextInt(50);
-            int valueY = random.nextInt(10);
+            int valueX = random.nextInt(field[0].length);
+            int valueY = random.nextInt(field.length);
             put(valueX, valueY);
         }
     }
@@ -86,13 +86,11 @@ public class Sand {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int height;
         System.out.println("Please enter the width dimension of the field: ");
-        height = input.nextInt();
+        int height = input.nextInt();
 
-        int width;
         System.out.println("Please enter the height dimension of the field: ");
-        width = input.nextInt();
+        int width = input.nextInt();
 
         Sand sand = new Sand(height, width);
         System.out.println(sand);
