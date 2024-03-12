@@ -49,7 +49,10 @@ public class Sand {
         //moves all sand down one square
         for (int y = field.length - 2; y >= 0; y--) {
             for (int x = 0; x < field[y].length; x++) {
-                if (field[y][x] == 1) {
+                if (field[y][x] == 1 && y + 1 < field.length) {
+/*                    if (y + 1 >= field.length) {
+                        continue;
+                    }*/
                     //does the sand fall straight down?
                     if (field[y + 1][x] == 0) {
                         field[y][x] = 0;
@@ -61,10 +64,10 @@ public class Sand {
                     int direction1 = rightFirst ? +1 : -1;
                     int direction2 = rightFirst ? -1 : +1;
 
-                    if (field[y + 1][x + direction1] == 0) {
+                    if (x + direction1 < field[y + 1].length && field[y + 1][x + direction1] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction1] = 1;
-                    } else if (field[y + 1][x + direction2] == 0) {
+                    } else if (x + direction2 < field[y + 1].length && field[y + 1][x + direction2] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction2] = 1;
                     }
@@ -86,26 +89,24 @@ public class Sand {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Please enter the width dimension of the field: ");
-        int height = input.nextInt();
-
-        System.out.println("Please enter the height dimension of the field: ");
-        int width = input.nextInt();
-
-        Sand sand = new Sand(height, width);
-        System.out.println(sand);
+        Sand sand = new Sand(50, 10);
 
         sand.randomSand(50);
+        System.out.println(sand);
+
+/*        for (int i = 0; i < 50; i++) {
+            sand.fall();
+            System.out.println(sand);
+        }*/
 
         System.out.println("Press the enter key to drop the sand. ");
         String enter = input.nextLine();
 
-        while (enter.equals(" ")) {
+        while (enter.isEmpty()) {
             sand.fall();
             System.out.println(sand);
             enter = input.nextLine();
         }
-
     }
 }
 

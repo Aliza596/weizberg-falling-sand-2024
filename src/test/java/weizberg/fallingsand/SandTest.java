@@ -134,9 +134,6 @@ public class SandTest {
 
     @Test
     public void fallSimultaneously() {
-        /*
-        make sure that if you
-         */
         //given
         Sand sand = new Sand(3, 3);
         sand.put(1, 0);
@@ -148,4 +145,5 @@ public class SandTest {
         //then
         assertEquals("000\n010\n010\n", sand.toString());
     }
+
 }
