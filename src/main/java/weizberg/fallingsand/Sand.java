@@ -50,9 +50,6 @@ public class Sand {
         for (int y = field.length - 2; y >= 0; y--) {
             for (int x = 0; x < field[y].length; x++) {
                 if (field[y][x] == 1 && y + 1 < field.length) {
-/*                    if (y + 1 >= field.length) {
-                        continue;
-                    }*/
                     //does the sand fall straight down?
                     if (field[y + 1][x] == 0) {
                         field[y][x] = 0;
@@ -87,25 +84,17 @@ public class Sand {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
         Sand sand = new Sand(50, 10);
 
         sand.randomSand(50);
         System.out.println(sand);
 
-/*        for (int i = 0; i < 50; i++) {
-            sand.fall();
-            System.out.println(sand);
-        }*/
-
         System.out.println("Press the enter key to drop the sand. ");
-        String enter = input.nextLine();
+        Scanner input = new Scanner(System.in);
 
-        while (enter.isEmpty()) {
+        while (input.nextLine().isEmpty()) {
             sand.fall();
             System.out.println(sand);
-            enter = input.nextLine();
         }
     }
 }
