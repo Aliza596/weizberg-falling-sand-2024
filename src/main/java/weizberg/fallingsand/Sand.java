@@ -68,10 +68,7 @@ public class Sand {
                     } else if (x + direction2 < field[y + 1].length && field[y + 1][x + direction2] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction2] = 1;
-                    } else {
-                        field[y][x] = 1;
                     }
-
                 }
             }
         }
