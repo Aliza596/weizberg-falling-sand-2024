@@ -27,7 +27,6 @@ public class SandComponent extends JComponent {
         for (int i = 0; i < xValuesOfOnes.size(); i++) {
             x = xValuesOfOnes.get(i);
             y = yValuesOfOnes.get(i);
-            System.out.println("x: " + x + " Y: " + y);
             g.setColor(Color.CYAN);
             g.fillRect(x, y, 5, 5);
         }
