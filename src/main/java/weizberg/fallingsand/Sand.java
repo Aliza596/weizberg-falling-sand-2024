@@ -1,5 +1,6 @@
 package weizberg.fallingsand;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -38,6 +39,32 @@ public class Sand {
         return field[y][x];
     }
 
+    public ArrayList<Integer> getXs() {
+        ArrayList<Integer> xs = new ArrayList<Integer>();
+        for (int y = 0; y < field.length; y++) {
+            for (int x = 0; x < field[y].length; x++) {
+                if (field[y][x] == 1) {
+                    xs.add(x);
+                }
+            }
+
+        }
+        return xs;
+    }
+
+    public ArrayList<Integer> getYs() {
+        ArrayList<Integer> ys = new ArrayList<Integer>();
+        for (int y = 0; y < field.length; y++) {
+            for (int x = 0; x < field[y].length; x++) {
+                if (field[y][x] == 1) {
+                    ys.add(y);
+                }
+            }
+
+        }
+        return ys;
+    }
+
     /**
      * Sets the value in field to be 1
      */
@@ -62,12 +89,14 @@ public class Sand {
                     int direction2 = rightFirst ? -1 : +1;
 
 
-                    if (x + direction1 < field[y + 1].length && field[y + 1][x + direction1] == 0) {
+                    if (x + direction1 < field[y + 1].length &&  x + direction1 > 0 && field[y + 1][x + direction1] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction1] = 1;
-                    } else if (x + direction2 < field[y + 1].length && field[y + 1][x + direction2] == 0) {
+                    } else if (x + direction2 < field[y + 1].length && x + direction2 > 0 && field[y + 1][x + direction2] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction2] = 1;
+                    }  else {
+                        field[y][x] = 1;
                     }
                 }
             }
@@ -82,6 +111,7 @@ public class Sand {
             put(valueX, valueY);
         }
     }
+
 
     public static void main(String[] args) {
         Sand sand = new Sand(50, 10);
