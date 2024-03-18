@@ -89,10 +89,12 @@ public class Sand {
                     int direction2 = rightFirst ? -1 : +1;
 
 
-                    if (x + direction1 < field[y + 1].length &&  x + direction1 > 0 && field[y + 1][x + direction1] == 0) {
+                    if (x + direction1 < field[y + 1].length &&  x + direction1 > 0
+                            && field[y + 1][x + direction1] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction1] = 1;
-                    } else if (x + direction2 < field[y + 1].length && x + direction2 > 0 && field[y + 1][x + direction2] == 0) {
+                    } else if (x + direction2 < field[y + 1].length && x + direction2 > 0
+                            && field[y + 1][x + direction2] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction2] = 1;
                     }  else {

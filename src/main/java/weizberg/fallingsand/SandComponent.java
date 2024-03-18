@@ -1,4 +1,5 @@
 package weizberg.fallingsand;
+
 import javax.swing.JComponent;
 import java.awt.*;
 import java.util.ArrayList;
@@ -19,14 +20,14 @@ public class SandComponent extends JComponent {
         // draw the sand
 
         sand.fall();
-        ArrayList<Integer> xValuesOfOnes = sand.getXs();
-        ArrayList<Integer> yValuesOfOnes = sand.getYs();
+        ArrayList<Integer> valuesOfOnesX = sand.getXs();
+        ArrayList<Integer> valuesOfOnesY = sand.getYs();
 
         int x;
         int y;
-        for (int i = 0; i < xValuesOfOnes.size(); i++) {
-            x = xValuesOfOnes.get(i);
-            y = yValuesOfOnes.get(i);
+        for (int i = 0; i < valuesOfOnesX.size(); i++) {
+            x = valuesOfOnesX.get(i);
+            y = valuesOfOnesY.get(i);
             g.setColor(Color.CYAN);
             g.fillRect(x, y, 5, 5);
         }
