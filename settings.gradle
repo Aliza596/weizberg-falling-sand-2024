@@ -1,2 +1,3 @@
 rootProject.name = 'weizberg-falling-sand-2024'
+include 'Screenshots'
 

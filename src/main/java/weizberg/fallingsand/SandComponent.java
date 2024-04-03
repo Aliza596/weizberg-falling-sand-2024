@@ -78,7 +78,7 @@ public class SandComponent extends JComponent {
         repaint();
 
         try {
-            Thread.sleep(5);
+            Thread.sleep(2);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
