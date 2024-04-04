@@ -69,7 +69,7 @@ public class SandComponent extends JComponent {
         g.setColor(Color.darkGray);
         for (int y = 0; y < sand.getHeight(); y++) {
             for (int x = 0; x < sand.getWidth(); x++) {
-                if(sand.isSand(x, y)) {
+                if (sand.isSand(x, y)) {
                     g.fillRect(x, y, 3, 3);
                 }
             }

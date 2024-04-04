@@ -195,7 +195,7 @@ public class SandTest {
     public void resizeLarger() {
         //given
         Sand sand = new Sand(2, 2);
-        sand.put(1,1);
+        sand.put(1, 1);
 
         //when
         sand.resize(3, 3);
@@ -208,7 +208,7 @@ public class SandTest {
     public void load() {
         //given
         Sand sand = new Sand(3, 3);
-        sand.put(0,0);
+        sand.put(0, 0);
 
         //when
         sand.load("000\n010\n000\n");
@@ -220,7 +220,7 @@ public class SandTest {
     @Test
     public void putMultiple() {
         //given
-        Sand sand = new Sand(5,5);
+        Sand sand = new Sand(5, 5);
 
         //when
         sand.put(1, 1, 3, 3, 1.00);
