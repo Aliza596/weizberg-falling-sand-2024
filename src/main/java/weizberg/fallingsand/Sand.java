@@ -1,11 +1,14 @@
 package weizberg.fallingsand;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.Math.min;
 
+@Singleton
 public class Sand {
 
     private int[][] field;
@@ -52,14 +55,14 @@ public class Sand {
      *
      * @param startX             top left of the rectangle
      * @param startY             top left of the rectangle
-     * @param width
-     * @param height
+     * @param width              width of the rectangle
+     * @param height             height of the rectangle
      * @param probability   that an empty spot in the circle will be sand
      */
     public void put(int startX, int startY, int width, int height, double probability) {
         for (int y = startY; y < startY + height; y++) {
             for (int x = startX; x < startX + width; x++) {
-                if(random.nextDouble() <= probability) {
+                if (random.nextDouble() <= probability) {
                     field[y][x] = 1;
                 }
             }
@@ -77,7 +80,7 @@ public class Sand {
 
         for (int i = 0; i < sandString.length(); i++) {
             char c = sandString.charAt(i);
-            switch(c) {
+            switch (c) {
                 case '\n' -> {
                     counterRows++;
                     counterColumns = 0;
@@ -135,7 +138,7 @@ public class Sand {
      */
     private void moveSandDown(int x, int y) {
         //move down
-        if(move(x, y, x, y + 1)) {
+        if (move(x, y, x, y + 1)) {
             return;
         }
 
@@ -143,7 +146,7 @@ public class Sand {
         int direction = random.nextBoolean() ? +1 : -1;
 
         //move diagonally in one direction
-        if(move(x, y, x + direction, y + 1)) {
+        if (move(x, y, x + direction, y + 1)) {
             return;
         }
 
@@ -157,7 +160,7 @@ public class Sand {
      * @return true if move was successful, otherwise false
      */
     public boolean move(int x1, int y1, int x2, int y2) {
-        if(inBounds(x2, y2) && isSand(x1, y1) && !isSand(x2, y2)) {
+        if (inBounds(x2, y2) && isSand(x1, y1) && !isSand(x2, y2)) {
             field[y1][x1] = 0;
             field[y2][x2] = 1;
             return true;
@@ -177,7 +180,7 @@ public class Sand {
      * keep the contents
      */
     public void resize(int width, int height) {
-        if(height == field.length && width == field[0].length) {
+        if (height == field.length && width == field[0].length) {
             return;
         }
         int[][] newField = new int[height][width];

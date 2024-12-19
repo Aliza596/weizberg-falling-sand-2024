@@ -1,5 +1,6 @@
 package weizberg.fallingsand;
 
+import javax.inject.Inject;
 import javax.swing.JComponent;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -13,6 +14,7 @@ public class SandComponent extends JComponent {
     private final Sand sand;
 
 
+    @Inject
     public SandComponent(Sand sand) {
         this.sand = sand;
 
